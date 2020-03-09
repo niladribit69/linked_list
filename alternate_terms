@@ -1,0 +1,55 @@
+#include<stdio.h>	#printing alternate terms
+#include<stdlib.h>
+void main()
+{
+	struct node
+	{
+		int data;
+		struct node *next;
+	};
+	int num;
+	printf("enter no. of data ");
+	scanf("%d",&num);
+	struct node *head,*newnode,*temp;
+	head=0;
+	while(num>0)
+	{
+		newnode=(struct node *)malloc(sizeof(struct node));
+		printf("enter data");
+		scanf("%d",&newnode->data);
+		newnode->next=0;
+		if(head==0)
+		{
+			head=temp=newnode;
+		}
+		else
+		{
+			temp->next=newnode;
+			temp=newnode;
+		}
+		num--;
+	}
+		int count=0;
+		temp=head;
+		while(temp!=0)
+		{
+			count++;
+			printf("%d ",temp->data);
+			temp=temp->next;
+		}
+	printf("\n %d elements\n",count);
+	
+	struct node *nextnode;
+	temp=head;
+	int i=1;
+	while(i<count+1)
+	{
+		printf("%d ",temp->data);
+		temp=temp->next;
+		temp=temp->next;
+		i++;
+		i++;
+		
+		
+	}
+}
