@@ -1,0 +1,70 @@
+#include<stdio.h>//finding middle element of linked list
+#include<stdlib.h>
+void main()
+{
+	struct node
+	{
+		int data;
+		struct node *next;
+	};
+	int num;
+	printf("enter no. of data ");
+	scanf("%d",&num);
+	struct node *head,*newnode,*temp;
+	head=0;
+	while(num>0)
+	{
+		newnode=(struct node *)malloc(sizeof(struct node));
+		printf("enter data");
+		scanf("%d",&newnode->data);
+		newnode->next=0;
+		if(head==0)
+		{
+			head=temp=newnode;
+		}
+		else
+		{
+			temp->next=newnode;
+			temp=newnode;
+		}
+		num--;
+	}
+		int count=0;
+		temp=head;
+		while(temp!=0)
+		{
+			count++;
+			printf("%d ",temp->data);
+			temp=temp->next;
+		}
+	printf("\n %d elements",count);
+	
+	if(count%2!=0)
+	{
+		int num1=(count+1)/2;
+		struct node*temp;
+		temp=head;
+		int i=1;
+		while(i<num1)
+		{
+			temp=temp->next;
+			i++;
+		}
+		printf("\n %d is the middle element",temp->data);
+	}
+	if(count%2==0)
+	{
+		int num1=(count)/2;
+		struct node*temp,*temp2;
+		temp=temp2=head;
+		int i=1;
+		while(i<num1+1)
+		{
+			temp=temp2;
+			temp2=temp2->next;
+			i++;
+			
+		}
+		printf("\n %d and %d are the middle elements",temp->data,temp2->data);
+	}
+}
