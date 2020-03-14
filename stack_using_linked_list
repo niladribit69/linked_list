@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+struct node *temp,*head=0;
+
+void push()
+{
+	struct node*newnode;
+	newnode=(struct node*)malloc(sizeof(struct node));
+	printf("enter the data");
+	scanf("%d",&newnode->data);
+	newnode->next=0;
+	if(head==0)
+	{
+		head=newnode;
+	}
+	else
+	{
+		newnode->next=head;
+		head=newnode;
+	}
+	
+}
+void pop()
+{
+	if(head==0)
+	{
+		printf("underflow");
+	}
+	else
+	{
+		temp=head;
+		printf("\n popped element is %d\n",temp->data);
+		head=head->next;
+		free(temp);
+		
+	}
+}
+void display()
+{
+	temp=head;
+	while(temp!=0)
+	{
+		printf("%d ",temp->data);
+		temp=temp->next;
+	}
+	printf("\n");
+}
+int main()
+{
+	printf("1.push\n");
+	printf("2.pop\n");
+	printf("3.display\n");
+	
+	int x;
+	printf("enter your choice");
+	scanf("%d",&x);
+	switch (x) 
+   { 
+       case 1: printf("push\n"); 
+       			push();
+               break; 
+       case 2: printf("pop\n"); 
+       			pop();
+                break; 
+    	case 3: printf("display\n");
+	   			display(); 
+               break;
+       default: printf("sorry"); 
+                break;   
+   } 
+   if (x<=3){
+   
+   main();
+   }
+   else
+   return 0;
+}
